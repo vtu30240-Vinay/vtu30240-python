@@ -1,0 +1,176 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOzJ3CEk0bBNdZJ8d6vV1Y9",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/vtu30240-Vinay/vtu30240-python/blob/main/task%207\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 384
+        },
+        "id": "7-tQXgFW_LRu",
+        "outputId": "a4448c06-db2e-485c-f83a-62e5ae9fa973"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "\n",
+            "--- Banking Transaction System ---\n",
+            "1. Deposit Money\n",
+            "2. Withdraw Money\n",
+            "3. Check Balance\n",
+            "4. Exit\n",
+            "Enter your choice: enter\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "ValueError",
+          "evalue": "invalid literal for int() with base 10: 'enter'",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mValueError\u001b[0m                                Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipython-input-3910993917.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     27\u001b[0m     \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"4. Exit\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     28\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 29\u001b[0;31m     \u001b[0mchoice\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0minput\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Enter your choice: \"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     30\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     31\u001b[0m     \u001b[0;32mif\u001b[0m \u001b[0mchoice\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;36m1\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mValueError\u001b[0m: invalid literal for int() with base 10: 'enter'"
+          ]
+        }
+      ],
+      "source": [
+        "# Banking Transaction System using functions\n",
+        "\n",
+        "balance = 0  # global variable to store balance\n",
+        "\n",
+        "def deposit(amount):\n",
+        "    global balance\n",
+        "    balance += amount\n",
+        "    print(f\"₹{amount} deposited successfully. Current balance: ₹{balance}\")\n",
+        "\n",
+        "def withdraw(amount):\n",
+        "    global balance\n",
+        "    if amount <= balance:\n",
+        "        balance -= amount\n",
+        "        print(f\"₹{amount} withdrawn successfully. Current balance: ₹{balance}\")\n",
+        "    else:\n",
+        "        print(\"Insufficient balance!\")\n",
+        "\n",
+        "def check_balance():\n",
+        "    print(f\"Your current balance is: ₹{balance}\")\n",
+        "\n",
+        "# Main program\n",
+        "while True:\n",
+        "    print(\"\\n--- Banking Transaction System ---\")\n",
+        "    print(\"1. Deposit Money\")\n",
+        "    print(\"2. Withdraw Money\")\n",
+        "    print(\"3. Check Balance\")\n",
+        "    print(\"4. Exit\")\n",
+        "\n",
+        "    choice = int(input(\"Enter your choice: \"))\n",
+        "\n",
+        "    if choice == 1:\n",
+        "        amt = float(input(\"Enter amount to deposit: \"))\n",
+        "        deposit(amt)\n",
+        "    elif choice == 2:\n",
+        "        amt = float(input(\"Enter amount to withdraw: \"))\n",
+        "        withdraw(amt)\n",
+        "    elif choice == 3:\n",
+        "        check_balance()\n",
+        "    elif choice == 4:\n",
+        "        print(\"Thank you for using our banking system!\")\n",
+        "        break\n",
+        "    else:\n",
+        "        print(\"Invalid choice! Please try again.\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Student Result Calculator using functions\n",
+        "\n",
+        "def get_marks():\n",
+        "    m1 = int(input(\"Enter marks of Subject 1: \"))\n",
+        "    m2 = int(input(\"Enter marks of Subject 2: \"))\n",
+        "    m3 = int(input(\"Enter marks of Subject 3: \"))\n",
+        "    return m1, m2, m3\n",
+        "\n",
+        "def calculate_total_average(m1, m2, m3):\n",
+        "    total = m1 + m2 + m3\n",
+        "    average = total / 3\n",
+        "    return total, average\n",
+        "\n",
+        "def find_grade(average):\n",
+        "    if average >= 90:\n",
+        "        return 'A'\n",
+        "    elif average >= 75:\n",
+        "        return 'B'\n",
+        "    elif average >= 50:\n",
+        "        return 'C'\n",
+        "    else:\n",
+        "        return 'Fail'\n",
+        "\n",
+        "def display_result(total, average, grade):\n",
+        "    print(\"\\n--- Student Result ---\")\n",
+        "    print(f\"Total Marks: {total}\")\n",
+        "    print(f\"Average Marks: {average:.2f}\")\n",
+        "    print(f\"Grade: {grade}\")\n",
+        "\n",
+        "# Main program\n",
+        "m1, m2, m3 = get_marks()\n",
+        "total, average = calculate_total_average(m1, m2, m3)\n",
+        "grade = find_grade(average)\n",
+        "display_result(total, average, grade)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "7Fj_GQJK_btY",
+        "outputId": "e9df2cfa-e0de-4594-b960-5f31976fcf84"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter marks of Subject 1: 18\n",
+            "Enter marks of Subject 2: 40\n",
+            "Enter marks of Subject 3: 70\n",
+            "\n",
+            "--- Student Result ---\n",
+            "Total Marks: 128\n",
+            "Average Marks: 42.67\n",
+            "Grade: Fail\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
