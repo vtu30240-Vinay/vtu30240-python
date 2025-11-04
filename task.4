@@ -1,0 +1,153 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOKhDr+UZ1XyR8xlnugeYGR",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/vtu30240-Vinay/vtu30240-python/blob/main/task.4\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "D4RC-WHs7fBl",
+        "outputId": "a822db5e-bcda-4440-e5b8-98616b3d403f"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Total Bill Amount: 715\n",
+            "Highest Priced Item: 300\n",
+            "Lowest Priced Item: 60\n"
+          ]
+        }
+      ],
+      "source": [
+        "prices = [120, 85, 300, 150, 60]\n",
+        "total_bill = sum(prices)\n",
+        "highest_price = max(prices)\n",
+        "lowest_price = min(prices)\n",
+        "\n",
+        "print(\"Total Bill Amount:\", total_bill)\n",
+        "print(\"Highest Priced Item:\", highest_price)\n",
+        "print(\"Lowest Priced Item:\", lowest_price)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "students = [\n",
+        "    (\"Rahul\", 456),\n",
+        "    (\"Priya\", 390),\n",
+        "    (\"Karan\", 420),\n",
+        "    (\"Anita\", 470),\n",
+        "    (\"Vijay\", 365)\n",
+        "]\n",
+        "\n",
+        "highest_student = max(students, key=lambda x: x[1])\n",
+        "print(\"Student with Highest marks:\", highest_student[0], highest_student[1])\n",
+        "\n",
+        "print(\"Students scoring above 400:\")\n",
+        "for name, marks in students:\n",
+        "    if marks > 400:\n",
+        "        print(name, \"-\", marks)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "CmzQ7fPA7qtM",
+        "outputId": "0e482726-c305-4448-cd10-b4e5c11fad3a"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Student with Highest marks: Anita 470\n",
+            "Students scoring above 400:\n",
+            "Rahul - 456\n",
+            "Karan - 420\n",
+            "Anita - 470\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "countries = {\n",
+        "    \"India\": \"New Delhi\",\n",
+        "    \"France\": \"Paris\",\n",
+        "    \"Japan\": \"Tokyo\"\n",
+        "}\n",
+        "\n",
+        "new_country = input(\"Enter a new country:\")\n",
+        "new_capital = input(\"Enter its capital:\")\n",
+        "countries[new_country] = new_capital\n",
+        "\n",
+        "search_country = input(\"Enter country to find its capital:\")\n",
+        "\n",
+        "if search_country in countries:\n",
+        "    print(\"capital of\", search_country, \"is\", countries[search_country])\n",
+        "else:\n",
+        "    print(\"Country not found!\")\n",
+        "print (\"\\n country-capital pairs in alphabetical order:\")\n",
+        "for country in sorted (countries):\n",
+        "    print (country, \"-\", countries[country])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OQoRgj_H7waA",
+        "outputId": "f0dca9b9-b7ba-4790-b8b8-ec4ca26b6bb9"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter a new country:india\n",
+            "Enter its capital:delhi\n",
+            "Enter country to find its capital:india\n",
+            "capital of india is delhi\n",
+            "\n",
+            " country-capital pairs in alphabetical order:\n",
+            "France - Paris\n",
+            "India - New Delhi\n",
+            "Japan - Tokyo\n",
+            "india - delhi\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
