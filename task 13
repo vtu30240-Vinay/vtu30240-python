@@ -1,0 +1,89 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPDJcF9rbo4bK8wK89ZlKkq",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/vtu30240-Vinay/vtu30240-python/blob/main/task%2013\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 106
+        },
+        "id": "2YlefgZC8vUZ",
+        "outputId": "55b24423-9c5d-4a4a-86c3-0a575f578d64"
+      },
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "invalid decimal literal (ipython-input-3436998510.py, line 9)",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"/tmp/ipython-input-3436998510.py\"\u001b[0;36m, line \u001b[0;32m9\u001b[0m\n\u001b[0;31m    1.Start\u001b[0m\n\u001b[0m     ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid decimal literal\n"
+          ]
+        }
+      ],
+      "source": [
+        "USE CASE\n",
+        "Develop an application to perform Plotting Probabilities Using\n",
+        "Matplotlib\n",
+        "AIM:\n",
+        "To develop a Python application that visualizes probabilities of events\n",
+        "using Matplotlib, helping users understand how probabilities are\n",
+        "distributed.\n",
+        "ALGORITHM\n",
+        "1.Start\n",
+        "2.Import Libraries: Use matplotlib.pyplot for plotting and numpy for\n",
+        "calculations.\n",
+        "3.Define Events: Decide the experiment (e.g., coin toss, dice roll).\n",
+        "4.Calculate Probabilities: For each possible outcome, compute its\n",
+        "probability.\n",
+        "5.Plot Probabilities: Use bar chart or pie chart to display probabilities.\n",
+        "6.Display Plot: Show the graph with proper labels and title.\n",
+        "7.End\n",
+        "PROGRAM\n",
+        "import matplotlib.pyplot as plt\n",
+        "outcomes = [\"Heads\", \"Tails\"]\n",
+        "probabilities = [0.5, 0.5]\n",
+        "plt.bar(outcomes, probabilities, color='lightgreen', edgecolor='black')\n",
+        "plt.title(\"Probability Distribution of a Coin Toss\")\n",
+        "plt.ylabel(\"Probability\")\n",
+        "for i, prob in enumerate(probabilities):\n",
+        "plt.text(i, prob + 0.02, str(prob), ha='center')"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "5rjwatOy9EzB"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
