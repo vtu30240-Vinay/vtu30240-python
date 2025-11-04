@@ -1,0 +1,163 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPERzEQHuuNrBi8ev7ssufA",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/vtu30240-Vinay/vtu30240-python/blob/main/task%2012\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "COd0Htm97O3x",
+        "outputId": "0f8a2459-0c51-4a0e-fec3-83262c591b3d"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "pygame 2.6.1 (SDL 2.28.4, Python 3.12.12)\n",
+            "Hello from the pygame community. https://www.pygame.org/contribute.html\n"
+          ]
+        }
+      ],
+      "source": [
+        "import pygame, sys\n",
+        "\n",
+        "pygame.init()\n",
+        "\n",
+        "w = pygame.display.set_mode((500, 300))\n",
+        "p = pygame.Rect(50, 130, 40, 40)\n",
+        "e = pygame.Rect(400, 130, 40, 40)\n",
+        "\n",
+        "c = pygame.time.Clock()\n",
+        "s = 5   # speed\n",
+        "running = True # Flag to control the game loop\n",
+        "\n",
+        "while running:\n",
+        "    for ev in pygame.event.get():\n",
+        "        if ev.type == pygame.QUIT:\n",
+        "            running = False  # Set flag to False to exit the loop\n",
+        "\n",
+        "    k = pygame.key.get_pressed()\n",
+        "    p.x += (k[pygame.K_RIGHT] - k[pygame.K_LEFT]) * s\n",
+        "    p.y += (k[pygame.K_DOWN] - k[pygame.K_UP]) * s\n",
+        "\n",
+        "    # Enemy auto movement (optional – based on your notes)\n",
+        "    e.x -= 4\n",
+        "    if e.x <= 0:\n",
+        "        e.x = 500\n",
+        "\n",
+        "    w.fill((255, 255, 255))\n",
+        "\n",
+        "    pygame.draw.rect(w, (0, 0, 255), p)\n",
+        "    pygame.draw.rect(w, (255, 0, 0), e)\n",
+        "\n",
+        "    if p.colliderect(e):  # collision check\n",
+        "        font = pygame.font.SysFont(None, 50)\n",
+        "        text = font.render(\"Game Over!\", True, (0, 0, 0))\n",
+        "        w.blit(text, (150, 120))\n",
+        "        pygame.display.update()\n",
+        "        pygame.time.delay(2000)\n",
+        "        running = False # Set flag to False to exit the loop after collision\n",
+        "\n",
+        "    pygame.display.update()\n",
+        "    c.tick(30)\n",
+        "\n",
+        "pygame.quit() # Quit Pygame after the loop finishes"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Text-based game simulation in Colab\n",
+        "\n",
+        "player_pos = 50\n",
+        "enemy_pos = 400\n",
+        "speed = 5\n",
+        "\n",
+        "def show_status():\n",
+        "    print(f\"Player position: {player_pos}\")\n",
+        "    print(f\"Enemy position: {enemy_pos}\")\n",
+        "    print(\"-\" * 30)\n",
+        "\n",
+        "def move_player(direction):\n",
+        "    global player_pos\n",
+        "    if direction == \"right\":\n",
+        "        player_pos += speed\n",
+        "    elif direction == \"left\":\n",
+        "        player_pos -= speed\n",
+        "\n",
+        "def move_enemy():\n",
+        "    global enemy_pos\n",
+        "    enemy_pos -= 4\n",
+        "    if enemy_pos <= 0:\n",
+        "        enemy_pos = 500\n",
+        "\n",
+        "def check_collision():\n",
+        "    return abs(player_pos - enemy_pos) < 40\n",
+        "\n",
+        "# Game loop\n",
+        "for turn in range(20):\n",
+        "    show_status()\n",
+        "    move = input(\"Move (left/right/none): \").strip().lower()\n",
+        "    move_player(move)\n",
+        "    move_enemy()\n",
+        "\n",
+        "    if check_collision():\n",
+        "        print(\"💥 Game Over! You collided with the enemy.\")\n",
+        "        break\n",
+        "else:\n",
+        "    print(\"✅ You survived 20 turns!\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QbCEbVrL7p7m",
+        "outputId": "783c85b5-86a3-4acf-f6f2-873c85a8d49c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Player position: 50\n",
+            "Enemy position: 400\n",
+            "------------------------------\n",
+            "Move (left/right/none): 12\n",
+            "Player position: 50\n",
+            "Enemy position: 396\n",
+            "------------------------------\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
